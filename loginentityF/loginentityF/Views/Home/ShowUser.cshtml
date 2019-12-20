@@ -1,0 +1,78 @@
+﻿@model List<loginentityF.Models.user>
+
+@{
+    ViewBag.Title = "ShowUser";
+    //string[,] strFrom2D = (string[,])Session["str2DArray"];
+  
+    
+}
+
+<h2>ShowUser</h2>
+
+
+
+<div>
+    <h4>user</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("name")
+        </dt>
+
+        <dd>
+            @*@strFrom2D[0, 0]*@
+            @Session["Name"]
+        </dd>
+
+        <dt>
+
+            @Html.Label("Password")
+        </dt>
+
+        <dd>
+            @Session["Password"]
+        </dd>
+        <dt>
+
+            @Html.Label("Designation")
+        </dt>
+
+        <dd>
+            @Session["Designation"]
+        </dd>
+    </dl>
+
+
+
+    @{
+
+        if (Model == null)
+        {
+            <strong>No user Found!! </strong>
+        }
+        else
+        {
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.userName</td>
+                    <td>@item.designation</td>
+                </tr>
+
+
+                }
+            </table>
+        }
+
+    }
+
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
